@@ -1,0 +1,21 @@
+:root{
+
+--paper:#F7F3EA;
+
+--paper-dark:#EEE8DD;
+
+--text:#20201D;
+
+--muted:#6D6A64;
+
+--border:#DDD5C8;
+
+--accent:#B68455;
+
+--max-width:760px;
+
+--hero-width:980px;
+
+--transition:250ms ease;
+
+}

@@ -1,21 +1,9 @@
 :root{
-
---paper:#F7F3EA;
-
---paper-dark:#EEE8DD;
-
---text:#20201D;
-
---muted:#6D6A64;
-
---border:#DDD5C8;
-
---accent:#B68455;
-
---max-width:760px;
-
---hero-width:980px;
-
---transition:250ms ease;
-
+ --paper:#F7F3EA;
+ --text:#22211F;
+ --muted:#6D6A64;
+ --accent:#B68455;
+ --border:#DDD5C8;
+ --max-width:760px;
+ --hero-width:980px;
 }

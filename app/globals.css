@@ -1,13 +1,13 @@
+@import "tailwindcss";
 @import "../styles/variables.css";
 @import "../styles/typography.css";
 @import "../styles/animations.css";
 
-@import "tailwindcss";
-
-html {
-    scroll-behavior: smooth;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+ background:var(--paper);
+ color:var(--text);
+ font-family:var(--font-sans);
 }
-
-body {
-    margin: 0;
-}
+a{text-decoration:none;color:inherit}

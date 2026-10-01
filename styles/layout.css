@@ -21,6 +21,11 @@
 
 .home {
   padding-top: clamp(5rem, 15vh, 9.5rem);
+  background-image:
+    linear-gradient(rgba(249, 248, 246, 0.78), rgba(249, 248, 246, 0.78)),
+    url("/bg_web.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .intro {

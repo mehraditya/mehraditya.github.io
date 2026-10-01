@@ -6,18 +6,6 @@ interface ContainerProps {
   className?: string;
 }
 
-export default function Container({
-  children,
-  className,
-}: ContainerProps) {
-  return (
-    <main
-      className={clsx(
-        "mx-auto w-full max-w-[980px] px-6 md:px-10 lg:px-12",
-        className
-      )}
-    >
-      {children}
-    </main>
-  );
+export default function Container({ children, className }: ContainerProps) {
+  return <div className={clsx("shell", className)}>{children}</div>;
 }

@@ -1,9 +1,21 @@
-:root{
- --paper:#F7F3EA;
- --text:#22211F;
- --muted:#6D6A64;
- --accent:#B68455;
- --border:#DDD5C8;
- --max-width:760px;
- --hero-width:980px;
+:root {
+  --paper: #F9F8F6;
+  --ink: #1A1A1A;
+  --ink-muted: #4A4A4A;
+  --rule: rgba(26, 26, 26, 0.10);
+  --rule-strong: rgba(26, 26, 26, 0.22);
+  --selection: rgba(26, 26, 26, 0.12);
+
+  --shell: 56rem;
+  --measure: 33rem;
+  --gutter: 1.5rem;
+
+  --dur: 240ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --gutter: 2.5rem;
+  }
 }

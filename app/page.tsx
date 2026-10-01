@@ -1,18 +1,16 @@
-import Navbar from '@/components/layout/Navbar';
-import Container from '@/components/layout/Container';
-import Hero from '@/components/home/Hero';
-import CurrentReading from '@/components/home/CurrentReading';
-import Footer from '@/components/layout/Footer';
+import Link from "next/link";
+import Container from "@/components/layout/Container";
+import Introduction from "@/components/home/Introduction";
+import PortalGrid from "@/components/home/PortalGrid";
 
-export default function Home(){
+export default function Home() {
   return (
-    <>
-      <Navbar/>
-      <Container>
-        <Hero/>
-        <CurrentReading/>
-      </Container>
-      <Footer/>
-    </>
+    <Container className="home">
+      <Introduction />
+      <PortalGrid />
+      <p className="home-about">
+        <Link href="/about">About</Link>
+      </p>
+    </Container>
   );
 }

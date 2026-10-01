@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
-import { Geist, Newsreader } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
+import ScrollRail from "@/components/layout/ScrollRail";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
-const sans = Geist({subsets:["latin"], variable:"--font-sans"});
-const serif = Newsreader({subsets:["latin"], variable:"--font-serif"});
+const sans = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const serif = Newsreader({ subsets: ["latin"], variable: "--font-serif" });
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mehraditya.github.io"),
 
   title: {
-    default: "Research Notebook",
-    template: "%s · Research Notebook",
+    default: "Aditya Mehra",
+    template: "%s · Aditya Mehra",
   },
 
   description:
@@ -35,11 +38,11 @@ export const metadata: Metadata = {
   creator: "Aditya Mehra",
 
   openGraph: {
-    title: "Research Notebook",
+    title: "Aditya Mehra",
     description:
       "Notes from papers I'm reading, questions I'm exploring, and systems I'm building.",
     url: "https://mehraditya.github.io",
-    siteName: "Research Notebook",
+    siteName: "Aditya Mehra",
     locale: "en_US",
     type: "website",
 
@@ -54,22 +57,30 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Research Notebook",
+    title: "Aditya Mehra",
     description:
       "Notes from papers I'm reading, questions I'm exploring, and systems I'm building.",
     images: ["/og-image.png"],
   },
 };
 
-export const viewport = {
-  themeColor: "#F7F3EA",
+export const viewport: Viewport = {
+  themeColor: "#F9F8F6",
 };
 
-export default function RootLayout({children}:{children:React.ReactNode}){
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${sans.variable} ${serif.variable}`}>
-        {children}
+      <body className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
+        <ScrollRail />
+        <div className="page">
+          <main className="page-main">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

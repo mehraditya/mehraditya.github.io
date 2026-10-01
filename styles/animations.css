@@ -1,1 +1,77 @@
-a,.card,.note{transition:all .25s ease}.card:hover,.note:hover{transform:translateY(-2px)}
+.crumb a,
+.home-about a,
+.footer-links a,
+.meta-link,
+.prose a,
+.related li a,
+.entry-link,
+.entry-title,
+.portal,
+.portal-label {
+  transition:
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.crumb a:hover,
+.home-about a:hover,
+.footer-links a:hover {
+  color: var(--ink);
+}
+
+.home-about a:hover {
+  border-bottom-color: var(--ink);
+}
+
+.crumb a:hover {
+  border-bottom-color: var(--rule-strong);
+}
+
+.meta-link:hover {
+  border-bottom-color: var(--ink);
+}
+
+.prose a:hover,
+.related li a:hover {
+  border-bottom-color: var(--ink);
+}
+
+.entry-link:hover .entry-title {
+  transform: translateX(0.3rem);
+}
+
+.portal {
+  transition:
+    border-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.portal:hover {
+  border-top-color: var(--ink);
+}
+
+.portal:hover .portal-label {
+  transform: translateX(0.4rem);
+}
+
+.portal:hover .portal-desc {
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crumb a,
+  .home-about a,
+  .footer-links a,
+  .meta-link,
+  .prose a,
+  .related li a,
+  .entry-link,
+  .entry-title,
+  .portal,
+  .portal-label,
+  .portal-desc,
+  .rail-fill {
+    transition: none;
+  }
+}

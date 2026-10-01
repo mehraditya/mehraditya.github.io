@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Research Notebook
 
-## Getting Started
+A publishing platform.
 
-First, run the development server:
+A public notebook documenting research, engineering, and long-form writing.
+
+Not a portfolio. Not a blog. Not a landing page.
+
+Everything in this repository exists to improve reading.
+
+---
+
+## Version
+
+**0.2.0**
+
+| Stage | Status |
+| --- | --- |
+| 0.1 Infrastructure | Complete |
+| 0.2 Editorial Foundation | Complete |
+| 0.3 Ambient Background | Next |
+
+Full stage breakdown lives in [docs/roadmap.md](docs/roadmap.md).
+
+---
+
+## Direction
+
+- [docs/design.md](docs/design.md) — design principles
+- [docs/architecture.md](docs/architecture.md) — systems and boundaries
+- [docs/roadmap.md](docs/roadmap.md) — staged development
+
+---
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
+pnpm build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`pnpm build` produces a static export in `out/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pushing to `main` deploys to GitHub Pages via `.github/workflows/deploy.yml`.

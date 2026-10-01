@@ -6,12 +6,12 @@ export default function PortalGrid() {
       <Portal
         href="/research-notes"
         label="Research Notes"
-        description="papers, ideas, experiments"
+        description="papers · experiments · ideas"
       />
       <Portal
         href="/writings"
         label="Writings"
-        description="essays, synthesis, observations"
+        description="essays · synthesis · observations"
       />
     </div>
   );

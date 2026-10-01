@@ -7,7 +7,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-serif);
-  line-height: 1.6;
+  font-size: 1.125rem;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -19,15 +20,16 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(249, 248, 246, 0.85), rgba(249, 248, 246, 0.85)),
+    linear-gradient(rgba(249, 248, 246, 0.9), rgba(249, 248, 246, 0.9)),
     url("/bg_web.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  filter: saturate(0.8);
 }
 
 ::selection {
-  background: var(--selection);
+  background: rgba(247, 224, 128, 0.55);
 }
 
 a {

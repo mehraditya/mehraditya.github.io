@@ -1,3 +1,25 @@
+@property --p {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes rail-progress {
+  from {
+    --p: 0;
+  }
+  to {
+    --p: 1;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .rail-root[data-mode="css"] {
+    animation: rail-progress 1s linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
 .crumb a,
 .home-about a,
 .footer-links a,
@@ -44,11 +66,13 @@
 .portal {
   transition:
     border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
     transform var(--dur) var(--ease);
 }
 
 .portal:hover {
   border-top-color: var(--ink);
+  background-color: rgba(26, 26, 26, 0.022);
 }
 
 .portal:hover .portal-label {
@@ -69,9 +93,19 @@
   .entry-link,
   .entry-title,
   .portal,
-  .portal-label,
-  .portal-desc,
-  .rail-fill {
+  .portal-label {
     transition: none;
+  }
+
+  .rail,
+  .rail-root[data-visible="true"] .rail {
+    transition: opacity 120ms linear;
+    transform: translateY(-50%);
+  }
+
+  .rail-edge,
+  .rail-root[data-visible="true"] .rail-edge,
+  .rail-section {
+    transition: opacity 120ms linear;
   }
 }

@@ -6,9 +6,17 @@
   --rule-strong: rgba(26, 26, 26, 0.22);
   --selection: rgba(26, 26, 26, 0.12);
 
+  --accent: #1A1A1A;
+  --accent-blue: #2A5785;
+
   --shell: 62rem;
   --measure: 36rem;
   --gutter: 1.5rem;
+
+  --w-read: var(--measure);
+  --w-title: 44rem;
+  --w-wide: 46rem;
+  --w-full: 56rem;
 
   --dur: 240ms;
   --ease: cubic-bezier(0.2, 0, 0, 1);

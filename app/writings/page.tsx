@@ -14,13 +14,13 @@ export default function WritingsPage() {
   const writings = getWritings();
 
   return (
-    <Container className="page-top">
+    <Container className="page-top section-writings">
       <Crumb href="/" label="Home" />
       <SectionTitle title="Writings" lede="Essays and observations." />
       {writings.length === 0 ? (
         <p className="empty">No writings published yet.</p>
       ) : (
-        <ol className="archive">
+        <ol className="archive archive--writings">
           {writings.map((writing, i) => (
             <Entry
               key={writing.slug}

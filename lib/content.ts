@@ -4,6 +4,7 @@ import matter from "gray-matter";
 
 export type Frontmatter = {
   title?: string;
+  type?: string;
   authors?: string[];
   venue?: string;
   year?: number;

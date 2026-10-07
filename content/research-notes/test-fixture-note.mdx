@@ -1,0 +1,100 @@
+---
+title: "Test Fixture Note"
+date: "2026-10-07"
+type: "research-note"
+description: "A temporary fixture that exercises headings, figure tiers, sources and the section rail. Not real research content."
+tags:
+  - test-fixture
+  - mdx
+related:
+  - activations-in-lms
+---
+
+> **Temporary test fixture.** Nothing on this page is a research claim. It exists only so the Research Note layout, figure tiers, section rail and reference handling can be inspected before real notes are dropped in. Delete this file when the first real note arrives.
+
+This paragraph stands in for the opening passage of a real note. It is here to give the reading column something to sit against: long enough to show the measure and the line length, short enough to stay obviously generic.
+
+## Why this fixture exists
+
+The system is meant to accept a note with nothing but frontmatter and a body, and render it as a chapter in the index plus a structured article. This fixture is the proof that the plumbing works: the title is read from the frontmatter, the date formats, the tags resolve, and the related link points at another note.
+
+Nothing here is written to be persuasive. It is written to be counted, so that the vertical rhythm of several paragraphs, a list, a quotation and a code block can be judged side by side.
+
+## Figures and layout tiers
+
+Figures are the reason the reading column is not the same width as the article. A figure can sit at the reading measure, step out to the wide tier, or take the full article width and break the column deliberately.
+
+### The three tiers
+
+The author expresses only intent, never CSS. Choosing a variant in the content file is the entire authoring surface, and the presentation is handled in one place.
+
+<Figure
+  src="/images/research/test-fixture/figure-01.png"
+  alt="Two curves rising across a plot with a light grid"
+  caption="A figure at the wide tier. The caption sits under the image at the reading measure, not under the full image width."
+  label="Figure 1"
+  variant="wide"
+/>
+
+A plain Markdown image stays inside the reading measure, which is the right default for anything incidental:
+
+![A placeholder grid of ink cells](/images/research/test-fixture/figure-02.png)
+
+The full tier takes the whole article width, up to the lane reserved for the section rail:
+
+<Figure
+  src="/images/research/test-fixture/figure-02.png"
+  alt="A grid of cells with varying ink density"
+  caption="A figure at the full tier. It breaks out to the right and stops before the rail."
+  label="Figure 2"
+  variant="full"
+/>
+
+And the small tier pulls in, for a schematic or a detail that should not dominate the page:
+
+<Figure
+  src="/images/research/test-fixture/figure-03.png"
+  alt="Nine boxes arranged in a grid with arrows between them"
+  caption="A figure at the small tier."
+  label="Figure 3"
+  variant="small"
+/>
+
+## Sources and references
+
+Sources are declared inline and rendered as a restrained editorial reference rather than a citation card. The author supplies only what is true; nothing is invented to fill a field.
+
+<Source
+  title="What Are Embeddings?"
+  author="Vicki Boykis"
+  href="https://vickiboykis.com/what-are-embeddings/"
+/>
+
+<Source
+  title="A note left without a link"
+  author="Field left deliberately blank"
+/>
+
+## Quotes, code and lists
+
+A quotation is a quiet left rule and a slight change in colour. It should never become a pull quote with its own furniture.
+
+> The interface should disappear. The thinking should remain.
+
+A list survives the trip through the layout unchanged:
+
+- the reading measure is unchanged by a figure
+- the section rail reads headings, not author-supplied ids
+- the accent colour is scoped to this section of the site
+
+A short code sample holds the wider tier so it does not wrap early:
+
+```python
+def progress(scroll_top, article_top, article_height, viewport):
+    span = max(1, article_height - viewport)
+    return min(1.0, max(0.0, (scroll_top - article_top) / span))
+```
+
+## Closing section
+
+A final section exists so the section rail has somewhere to land and the last heading sits above the tags and the related list.

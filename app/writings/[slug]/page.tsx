@@ -3,6 +3,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import Container from "@/components/layout/Container";
 import Crumb from "@/components/editorial/Crumb";
 import Article from "@/components/editorial/Article";
+import { mdxComponents } from "@/components/mdx";
 import { formatDate, getWritings, getWriting, resolveRelated } from "@/lib/content";
 
 export const dynamicParams = false;
@@ -39,7 +40,7 @@ export default async function WritingPage({
 
   if (!writing) {
     return (
-      <Container className="page-top">
+      <Container className="page-top section-writings">
         <Crumb href="/writings" label="Writings" />
         <div className="article">
           <p className="empty">Nothing published here.</p>
@@ -48,15 +49,20 @@ export default async function WritingPage({
     );
   }
 
-  const { content } = await compileMDX({ source: writing.content });
+  const { content } = await compileMDX({
+    source: writing.content,
+    components: mdxComponents,
+  });
 
   const items = writing.meta.date ? [formatDate(writing.meta.date)] : [];
 
   return (
-    <Container className="page-top">
+    <Container className="page-top section-writings">
       <Crumb href="/writings" label="Writings" />
       <Article
+        variant="writing"
         title={writing.meta.title}
+        lede={writing.meta.description}
         meta={{ items }}
         related={resolveRelated(writing.meta.related)}
         tags={writing.meta.tags}

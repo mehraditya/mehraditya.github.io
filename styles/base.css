@@ -19,13 +19,28 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  --wash: 0.9;
+  --sat: 0.8;
   background-image:
-    linear-gradient(rgba(249, 248, 246, 0.9), rgba(249, 248, 246, 0.9)),
+    linear-gradient(
+      rgb(249 248 246 / var(--wash)),
+      rgb(249 248 246 / var(--wash))
+    ),
     url("/bg_web.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: saturate(0.8);
+  filter: saturate(var(--sat));
+}
+
+body:has(.section-writings)::before {
+  --wash: 0.93;
+  --sat: 0.6;
+}
+
+body:has(.section-notes)::before {
+  --wash: 0.87;
+  --sat: 0.95;
 }
 
 ::selection {

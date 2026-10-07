@@ -3,7 +3,8 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import Container from "@/components/layout/Container";
 import Crumb from "@/components/editorial/Crumb";
 import Article from "@/components/editorial/Article";
-import { getNote, getNotes, resolveRelated } from "@/lib/content";
+import { mdxComponents } from "@/components/mdx";
+import { formatDate, getNote, getNotes, resolveRelated } from "@/lib/content";
 
 export const dynamicParams = false;
 
@@ -39,7 +40,7 @@ export default async function ResearchNotePage({
 
   if (!note) {
     return (
-      <Container className="page-top">
+      <Container className="page-top section-notes">
         <Crumb href="/research-notes" label="Research Notes" />
         <div className="article">
           <p className="empty">Nothing published here.</p>
@@ -48,17 +49,23 @@ export default async function ResearchNotePage({
     );
   }
 
-  const { content } = await compileMDX({ source: note.content });
+  const { content } = await compileMDX({
+    source: note.content,
+    components: mdxComponents,
+  });
 
   const items = [
     note.meta.authors?.join(", "),
     [note.meta.venue, note.meta.year].filter(Boolean).join(" · "),
+    note.meta.date ? formatDate(note.meta.date) : "",
   ].filter(Boolean) as string[];
 
   return (
-    <Container className="page-top">
+    <Container className="page-top section-notes">
       <Crumb href="/research-notes" label="Research Notes" />
       <Article
+        variant="note"
+        eyebrow="Research Note"
         title={note.meta.title}
         meta={{ items, paper: note.meta.paper }}
         related={resolveRelated(note.meta.related)}

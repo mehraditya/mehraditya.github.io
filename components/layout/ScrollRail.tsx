@@ -40,7 +40,7 @@ export default function ScrollRail() {
     let height = 0;
     let docMax = 1;
     let ratios: number[] = [];
-    let lastPct = -1;
+    let lastValue = "";
     let lastActive = -1;
     let raf = 0;
     let measureRaf = 0;
@@ -51,7 +51,9 @@ export default function ScrollRail() {
       const vh = window.innerHeight;
       docMax = Math.max(1, document.documentElement.scrollHeight - vh);
 
-      if (!article || !toc) {
+      if (!article) {
+        top = 0;
+        height = 0;
         ratios = [];
         setSections((prev) => (prev.length > 0 ? [] : prev));
         return;
@@ -60,6 +62,13 @@ export default function ScrollRail() {
       const rect = article.getBoundingClientRect();
       top = rect.top + window.scrollY;
       height = article.offsetHeight;
+
+      if (!toc) {
+        ratios = [];
+        setSections((prev) => (prev.length > 0 ? [] : prev));
+        return;
+      }
+
       const denom = Math.max(1, height - vh);
 
       const next = Array.from(
@@ -93,10 +102,10 @@ export default function ScrollRail() {
       const p = progress();
       root.style.setProperty("--p", p.toFixed(4));
 
-      const pct = Math.round(p * 100);
-      if (pct !== lastPct) {
-        lastPct = pct;
-        if (valueRef.current) valueRef.current.textContent = `${pct}%`;
+      const label = p.toFixed(1);
+      if (label !== lastValue) {
+        lastValue = label;
+        if (valueRef.current) valueRef.current.textContent = label;
       }
 
       let index = ratios.length > 0 ? 0 : -1;
@@ -198,7 +207,7 @@ export default function ScrollRail() {
         ))}
       <span className="rail-marker" />
       <span className="rail-value" ref={valueRef}>
-        0%
+        0.0
       </span>
     </div>
   );

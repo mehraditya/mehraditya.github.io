@@ -38,6 +38,13 @@ const MONTHS = [
   "December",
 ];
 
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function readDocs(kind: "research-notes" | "writings"): Doc[] {
   const dir = path.join(CONTENT_DIR, kind);
   if (!fs.existsSync(dir)) return [];
@@ -48,11 +55,12 @@ function readDocs(kind: "research-notes" | "writings"): Doc[] {
     .map((file) => {
       const raw = fs.readFileSync(path.join(dir, file), "utf8");
       const { data, content } = matter(raw);
-      const slug = file.replace(/\.mdx?$/, "");
+      const name = file.replace(/\.mdx?$/, "");
+      const slug = slugify(name) || "untitled";
       const meta = data as Frontmatter;
       return {
         slug,
-        meta: { ...meta, title: meta.title ?? slug },
+        meta: { ...meta, title: meta.title ?? name },
         content,
       };
     })

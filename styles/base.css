@@ -43,6 +43,11 @@ body:has(.section-notes)::before {
   --sat: 0.95;
 }
 
+body:has(.section-writings .article)::before,
+body:has(.section-notes .article)::before {
+  display: none;
+}
+
 ::selection {
   background: rgba(247, 224, 128, 0.55);
 }

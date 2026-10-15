@@ -603,8 +603,4 @@
   .doc-stat {
     display: flex;
   }
-
-  body:has(article.article) .site-footer-inner {
-    padding-bottom: 3.5rem;
-  }
 }

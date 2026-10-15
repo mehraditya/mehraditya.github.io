@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Metadata from "./Metadata";
+import ReadingStat from "./ReadingStat";
 
 export type RelatedLink = { title: string; href: string };
 
@@ -34,6 +35,7 @@ export default function Article({
       </header>
       <hr className="article-rule" />
       <div className="prose">{children}</div>
+      <ReadingStat />
       {related && related.length > 0 && (
         <section className="related" aria-label="Related">
           <h2 className="related-label">Related</h2>

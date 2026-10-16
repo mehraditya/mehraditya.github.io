@@ -28,6 +28,8 @@
 .related li a,
 .entry-link,
 .entry-title,
+.entry-index,
+.entry-desc,
 .portal,
 .portal-label {
   transition:
@@ -59,8 +61,32 @@
   border-bottom-color: var(--ink);
 }
 
-.entry-link:hover .entry-title {
-  transform: translateX(0.3rem);
+.archive--writings .entry-link:hover,
+.archive--writings .entry-link:focus-visible {
+  color: var(--accent-blue);
+  transform: translateX(0.35rem);
+}
+
+.archive--writings .entry-link:hover .entry-title,
+.archive--writings .entry-link:focus-visible .entry-title,
+.archive--writings .entry-link:hover .entry-index,
+.archive--writings .entry-link:focus-visible .entry-index {
+  color: var(--accent-blue);
+}
+
+.archive--writings .entry-link:hover .entry-desc,
+.archive--writings .entry-link:focus-visible .entry-desc {
+  color: var(--ink);
+}
+
+.archive--writings:has(.entry-link:focus-visible)
+  .entry:not(:has(.entry-link:focus-visible)) {
+  opacity: 0.42;
+  filter: blur(0.4px);
+}
+
+.section-writings:has(.entry-link:focus-visible) .section-head {
+  opacity: 0.6;
 }
 
 .portal {
@@ -132,6 +158,15 @@
   .research-index:has(.chapter:hover) .section-head {
     opacity: 0.6;
   }
+
+  .archive--writings:has(.entry:hover) .entry:not(:hover) {
+    opacity: 0.42;
+    filter: blur(0.4px);
+  }
+
+  .section-writings:has(.entry:hover) .section-head {
+    opacity: 0.6;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -143,6 +178,8 @@
   .related li a,
   .entry-link,
   .entry-title,
+  .entry-index,
+  .entry-desc,
   .portal,
   .portal-label,
   .section-head,
@@ -160,12 +197,17 @@
 
   .chapters:has(.chapter:hover) .chapter:not(:hover),
   .chapters:has(.chapter-link:focus-visible)
-    .chapter:not(:has(.chapter-link:focus-visible)) {
+    .chapter:not(:has(.chapter-link:focus-visible)),
+  .archive--writings:has(.entry:hover) .entry:not(:hover),
+  .archive--writings:has(.entry-link:focus-visible)
+    .entry:not(:has(.entry-link:focus-visible)) {
     filter: none;
   }
 
   .chapter-link:hover,
   .chapter-link:focus-visible,
+  .archive--writings .entry-link:hover,
+  .archive--writings .entry-link:focus-visible,
   .source:hover .source-arrow {
     transform: none;
   }

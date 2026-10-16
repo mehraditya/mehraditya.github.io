@@ -333,6 +333,20 @@
   padding-block: clamp(1.5rem, 3vh, 2rem);
 }
 
+/* Research-notes index: match writings density */
+.section-notes .chapter-title {
+  font-size: clamp(1.35rem, 2.4vw, 1.6rem);
+}
+
+.section-notes .chapter-link {
+  padding-block: clamp(1.5rem, 3vh, 2rem);
+}
+
+.section-notes .chapter-desc {
+  font-size: 1rem;
+  max-width: 46ch;
+}
+
 @media (max-width: 47.999rem) {
   .prose {
     font-size: 1.15rem;

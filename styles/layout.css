@@ -88,6 +88,9 @@
 
 .entry {
   border-bottom: 1px solid var(--rule);
+  transition:
+    opacity var(--dur) var(--ease),
+    filter var(--dur) var(--ease);
 }
 
 .entry-link {
